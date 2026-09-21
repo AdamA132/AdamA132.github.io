@@ -121,12 +121,33 @@
   .proj-body li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
   .proj-body .btns { margin-top: auto; padding-top: 8px; }
 
-  .parts { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-  .part {
-    background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
-    font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
+  .motion {
+    margin-top: 20px; background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px; text-align: center;
   }
-  .part b { display: block; color: var(--accent); font-weight: 500; font-size: 0.72rem; margin-bottom: 2px; }
+  .motion video {
+    display: block; margin: 0 auto 12px; width: 100%; max-width: 380px;
+    border-radius: 8px; background: #fff;
+  }
+  .motion .cap { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+
+  .parts-head {
+    margin: 28px 0 12px; font-family: var(--mono); font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2);
+  }
+  .parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .part {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; overflow: hidden;
+  }
+  .part img {
+    display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #f0f0f0;
+  }
+  .part span {
+    display: block; padding: 10px 12px; font-family: var(--mono);
+    font-size: 0.78rem; color: var(--muted);
+  }
+  .part b { color: var(--accent); font-weight: 500; }
 
   .soon {
     margin-top: 20px; border: 1px dashed var(--line); border-radius: var(--radius);
@@ -156,6 +177,7 @@
     header.hero { padding: 64px 0 48px; }
     .about-grid, .project { grid-template-columns: 1fr; }
     .media { border-right: none; border-bottom: 1px solid var(--line); min-height: 240px; }
+    .parts { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -184,7 +206,7 @@
     </p>
     <div class="btns">
       <a class="btn primary" href="#projects">View Projects</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/adam-azzubaidi-582282330/" target="_blank">LinkedIn</a>
+      <a class="btn ghost" href="resume.pdf" target="_blank">Download Resume</a>
     </div>
   </div>
 </header>
@@ -273,9 +295,9 @@
             <circle cx="72" cy="86" r="5"/>
             <circle cx="60" cy="90" r="3"/>
           </svg>
-          Add your render at images/engine-render.png
+          images/engine-assembly.png
         </div>
-        <img src="images/engine-render.png" alt="Render of the SolidWorks engine assembly" onerror="this.remove()">
+        <img src="images/engine-assembly.png" alt="SolidWorks render of the four-cylinder engine assembly" onerror="this.remove()">
       </div>
       <div class="proj-body">
         <div class="tag">SolidWorks · Assembly</div>
@@ -286,7 +308,7 @@
         </p>
         <ul>
           <li>Modeled each component as a separate part with accurate dimensions</li>
-          <li>Built the assembly with mates that allow realistic rotation of the crankshaft</li>
+          <li>Mated the assembly so crankshaft rotation drives all four pistons through the connecting rods</li>
           <li>Applied automotive repair experience to component fit and function</li>
         </ul>
         <div class="btns">
@@ -295,13 +317,22 @@
       </div>
     </article>
 
+    <div class="motion">
+      <video autoplay loop muted playsinline poster="images/engine-motion-poster.png">
+        <source src="images/engine-motion.mp4" type="video/mp4">
+        <img src="images/engine-motion.gif" alt="Animation of the engine assembly in motion">
+      </video>
+      <div class="cap">Motion study — crankshaft rotation driving all four pistons</div>
+    </div>
+
+    <div class="parts-head">Components modeled</div>
     <div class="parts">
-      <div class="part"><b>01</b>Piston</div>
-      <div class="part"><b>02</b>Piston ring</div>
-      <div class="part"><b>03</b>Crankshaft</div>
-      <div class="part"><b>04</b>Connecting rod</div>
-      <div class="part"><b>05</b>Rod cap</div>
-      <div class="part"><b>06</b>Piston pin</div>
+      <div class="part"><img src="images/piston.png" alt="Piston"><span><b>01</b> &nbsp;Piston</span></div>
+      <div class="part"><img src="images/piston-ring.png" alt="Piston ring"><span><b>02</b> &nbsp;Piston ring</span></div>
+      <div class="part"><img src="images/crankshaft.png" alt="Crankshaft"><span><b>03</b> &nbsp;Crankshaft</span></div>
+      <div class="part"><img src="images/connecting-rod.png" alt="Connecting rod"><span><b>04</b> &nbsp;Connecting rod</span></div>
+      <div class="part"><img src="images/rod-cap.png" alt="Rod cap"><span><b>05</b> &nbsp;Rod cap</span></div>
+      <div class="part"><img src="images/piston-pin.png" alt="Piston pin"><span><b>06</b> &nbsp;Piston pin</span></div>
     </div>
 
     <div class="soon">// more projects coming soon</div>
